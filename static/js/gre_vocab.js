@@ -8,10 +8,10 @@ const button_next = document.querySelector(".next-question");
 const scoreboard = document.querySelector(".scoreboard");
 const remaining = document.querySelector(".remaining");
 
-var correct_answer = {};
-var score = { correct: 0, incorrect: 0 };
-var chances = { current: 0, max: Number(num_chances.value) };
-var previous_answers = [];
+let correct_answer = {};
+let score = { correct: 0, incorrect: 0 };
+let chances = { current: 0, max: Number(num_chances.value) };
+let previous_answers = [];
 
 makeChoiceButtons(num_choices.value);
 newQuestion();
@@ -21,7 +21,6 @@ function makeChoiceButtons(num_choices) {
   if (choices) {
     deleteOldChoices();
   }
-  const answer_section = document.querySelector(".choices");
   for (let i = 0; i < num_choices; i++) {
     const choice = document.createElement("button");
     choice.classList.add("choice");
@@ -140,7 +139,6 @@ function highlightCorrect() {
   choices.forEach((choice) => {
     if (choice.innerHTML === correct_answer.Definition) {
       choice.classList.add("correct");
-      return;
     }
   });
 }
